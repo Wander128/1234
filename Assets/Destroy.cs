@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 
 public class Destroy : MonoBehaviour
-{   public Text 
+{
+    public Text textConta;
     int numEnem;
     private void OnCollisionEnter(Collision collision)
     {
         
         if (collision.gameObject.tag == "Player") {
             Destroy(collision.gameObject);
-            numEnem=
+            numEnem++;
+            textConta.text = numEnem.ToString();
 
         }
     }

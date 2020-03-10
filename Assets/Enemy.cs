@@ -11,21 +11,16 @@ public class Enemy : MonoBehaviour
     public float MaxR = 8;
 
     Vector3 rangoRandom;
-
-    void Start()
-    {
-    }
-
     void Update()
     {
         Counter = Counter + Time.deltaTime;
-        if (Counter > emision)
-        {
+        if (Counter > emision) {
             Counter = 0;
-            rangoRandom = new Vector3(transform.position.x, transform.position.y,
-            Random.Range(MinR, MaxR));
+            rangoRandom = new Vector3(Random.Range(MinR, MaxR), transform.position.y, 
+                transform.position.z);
             Instantiate(Enemigo, rangoRandom, transform.rotation);
+            Instantiate(Enemigo, rangoRandom + new Vector3(1,1,0),transform.rotation);
+            Instantiate(Enemigo, rangoRandom + new Vector3(2,0,0), transform.rotation);
         }
-
     }
 }
